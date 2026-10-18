@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comparatore camper van</title>
+<meta name="description" content="Confronto dei camper van nuovi dei principali marchi per lunghezza, disposizione dei letti, telaio e prezzo di listino.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.layout{display:grid;gap:18px}
+.filters{display:grid;gap:14px}
+.fgroup{display:grid;gap:6px}
+.fgroup>p{margin:0;font-size:13px;font-weight:600}
+.frow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+/* matrice segmenti */
+.matrix th:first-child,.matrix td:first-child{position:sticky;left:0;background:var(--surface)}
+.cell{font:inherit;width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:8px 10px;cursor:pointer;display:grid;gap:1px;min-width:120px}
+.cell b{font-family:var(--display);font-size:16px;font-variant-numeric:tabular-nums}
+.cell span{font-size:12px;color:var(--muted)}
+.cell[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.cell:disabled{opacity:.35;cursor:default}
+/* risultati */
+.res-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.res-head h2{margin:0}
+#lista td{white-space:nowrap}
+#lista td.nome{white-space:normal;min-width:180px}
+#lista tr.sel td{background:var(--accent-soft)}
+.delta{font-size:12px;color:var(--muted)}
+.cmpbtn{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:4px 9px;cursor:pointer;white-space:nowrap}
+.cmpbtn[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+/* confronto */
+.cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px}
+.cmpcard{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:8px;align-content:start;background:var(--bg)}
+.cmpcard h3{margin:0;font-family:var(--display);font-size:17px;line-height:1.2}
+.cmpcard .price{font-family:var(--display);font-weight:800;font-size:26px;font-variant-numeric:tabular-nums}
+.cmpcard dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13px}
+.cmpcard dt{color:var(--muted)}
+.cmpcard dd{margin:0}
+.diff{font-size:13px;font-weight:600}
+.diff.up{color:var(--bad)}.diff.down{color:var(--good)}
+.empty{color:var(--muted);font-size:14px;margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nav">
+  <a class="brand" href="./">comparatore<span>van</span></a>
+  <nav><a href="./">Home</a><a href="quotatore.html">Quotatore usato</a><a href="comparatore.html" aria-current="page">Comparatore nuovo</a></nav>
+</div>
+
+<header class="page">
+  <div>
+    <h1>Confronta i <em>camper van nuovi</em></h1>
+    <p class="sub">Modelli dei principali marchi raggruppati per lunghezza e disposizione dei letti, con il prezzo di listino del modello base. Scegli un segmento e metti a confronto fino a 4 van.</p>
+  </div>
+  <span class="tag" id="tag-tot">–</span>
+</header>
+
+<div class="layout">
+<section class="panel" aria-labelledby="h-seg">
+  <h2 id="h-seg">Segmenti</h2>
+  <p class="hint" style="margin-bottom:10px">Numero di modelli e prezzo di partenza per lunghezza e disposizione. Tocca una casella per filtrare.</p>
+  <div class="tbl"><table class="matrix"><thead id="mx-h"></thead><tbody id="mx-b"></tbody></table></div>
+</section>
+
+<section class="panel filters" aria-labelledby="h-fil">
+  <h2 id="h-fil" style="margin:0">Filtri</h2>
+  <div class="fgroup"><p>Lunghezza</p><div class="chips" id="f-len"></div></div>
+  <div class="fgroup"><p>Disposizione</p><div class="chips" id="f-disp"></div></div>
+  <div class="fgroup"><p>Marchi</p><div class="chips" id="f-marca"></div></div>
+  <div class="frow">
+    <label for="f-telaio">Telaio
+      <select id="f-telaio"><option value="">Tutti</option></select>
+    </label>
+    <label for="f-max">Prezzo massimo: <span id="f-max-v"></span>
+      <input id="f-max" type="range" min="40000" max="115000" step="1000">
+    </label>
+    <label for="f-q">Cerca
+      <input id="f-q" type="search" placeholder="es. Cliff, 2Win, BoxLife">
+    </label>
+  </div>
+  <div><button class="btn ghost" id="reset" type="button">Azzera filtri</button></div>
+</section>
+
+<section class="panel" aria-labelledby="h-cmp" id="cmp-sec">
+  <h2 id="h-cmp">Confronto</h2>
+  <div id="cmp"><p class="empty">Premi "Confronta" su 2, 3 o 4 modelli della lista per vederli fianco a fianco.</p></div>
+</section>
+
+<section class="panel" aria-labelledby="h-res">
+  <div class="res-head"><h2 id="h-res">Modelli</h2><span class="hint" id="res-n"></span></div>
+  <div class="tbl"><table><thead><tr><th>Marca</th><th>Modello</th><th>Lunghezza</th><th>Disposizione</th><th>Telaio</th><th class="num">Listino</th><th class="num">vs più economico</th><th></th></tr></thead><tbody id="lista"></tbody></table></div>
+</section>
+</div>
+
+<footer class="site">Prezzi di listino al pubblico del modello base, IVA inclusa: configuratori ufficiali e listini 2027 per Pössl, Roadcar, Clever, Panama, Challenger, Dethleffs e Sunlight (pacchetti obbligatori inclusi); listini 2026 "a partire da" per Knaus, Weinsberg, Adria, Hymer e Malibu. Disposizione "da verificare": non ancora confermata dal listino. Le dotazioni a confronto arriveranno con i listini dettagliati.</footer>
+</div>
+<script src="assets/comparatore.js"></script>
+</body>
+</html>

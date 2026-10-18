@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quanto vale il mio van</title>
+<meta name="description" content="Quotazione gratuita del camper van usato dal 2007 fino a 150.000 km, dai listini attuali e da centinaia di annunci reali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Layout: scheda veicolo a sinistra, valutazione a destra; una colonna su telefono */
+.grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px;align-items:start}
+@media (max-width:820px){.grid{grid-template-columns:minmax(0,1fr)}}
+.odo{display:flex;align-items:center;gap:8px}
+.odo input{font-family:var(--mono);font-weight:700;letter-spacing:.12em;background:var(--odo-bg);color:var(--odo-fg);border-color:var(--odo-bg);font-size:18px}
+.odo span{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.range{font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,46px);letter-spacing:-.02em;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.range span{color:var(--muted);font-weight:600}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+.full{display:grid;gap:18px;margin-top:18px}
+.grid>*,.full>*{min-width:0}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(140px,100%),1fr));gap:10px;margin:0}
+.kv div{border-top:2px solid var(--line);padding-top:8px}
+.kv dt{font-size:12px;color:var(--muted)}
+.kv dd{margin:0;font-family:var(--display);font-weight:600;font-size:20px;font-variant-numeric:tabular-nums}
+.kv .main dd{color:var(--accent);font-size:26px}
+.chart svg{width:100%;height:auto;display:block}
+.steps{margin:0;padding-left:18px;color:var(--muted);font-size:13px;display:grid;gap:3px}
+#comps td{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nav">
+  <a class="brand" href="./">comparatore<span>van</span></a>
+  <nav><a href="./">Home</a><a href="quotatore.html" aria-current="page">Quotatore usato</a><a href="comparatore.html">Comparatore nuovo</a></nav>
+</div>
+
+<header class="page">
+  <div>
+    <h1>Quanto vale il tuo <em>camper van</em>?</h1>
+    <p class="sub">Quotazione dell'usato dal 2007 fino a 150.000 km: prezzo a nuovo dai listini attuali, svalutazione calibrata su oltre 650 annunci reali in Europa.</p>
+  </div>
+  <span class="tag">12 marchi</span>
+</header>
+
+<div class="grid">
+<section class="panel" aria-labelledby="h-veicolo">
+  <h2 id="h-veicolo">Il tuo veicolo</h2>
+  <form id="f" novalidate>
+    <div class="row">
+      <label for="marca">Marca
+        <select id="marca"></select>
+      </label>
+      <label for="modtxt">Modello (come sul libretto o sull'annuncio)
+        <input id="modtxt" type="text" list="mlist" autocomplete="off" placeholder="es. Boxstar 600 Street, 2Win Plus">
+        <datalist id="mlist"></datalist>
+      </label>
+    </div>
+    <label for="modello">Modello attuale più simile, usato per il listino
+      <select id="modello"></select>
+      <small id="mref">Scelto in automatico dal modello che scrivi. Puoi cambiarlo.</small>
+    </label>
+    <label for="listino">Prezzo di listino attuale del modello base (€)
+      <input id="listino" type="number" inputmode="numeric" min="20000" max="150000" step="10">
+      <small id="lsrc">Dai listini 2027. Puoi correggerlo.</small>
+    </label>
+    <label for="opt">Optional di fabbrica montati (€, a listino)
+      <input id="opt" type="number" inputmode="numeric" min="0" step="100">
+      <small>Cambio automatico, motore più potente, pacchetti. Se non li conosci lascia il valore tipico precompilato.</small>
+    </label>
+    <div class="row">
+      <label for="mese">Mese immatricolazione
+        <select id="mese"></select>
+      </label>
+      <label for="anno">Anno
+        <select id="anno"></select>
+      </label>
+    </div>
+    <label for="km">Chilometri
+      <div class="odo"><input id="km" type="number" inputmode="numeric" min="0" max="150000" step="500"><span>km</span></div>
+    </label>
+    <label for="acc">Accessori aftermarket (€, IVA esclusa)
+      <input id="acc" type="number" inputmode="numeric" min="0" step="100">
+    </label>
+    <div>
+      <p style="margin:0 0 6px;font-size:13px;font-weight:600">Stato generale</p>
+      <div class="seg" id="stato" role="group" aria-label="Stato generale">
+        <button type="button" data-v="0.03" aria-pressed="false">Eccellente</button>
+        <button type="button" data-v="0" aria-pressed="true">Buono</button>
+        <button type="button" data-v="-0.05" aria-pressed="false">Da sistemare</button>
+      </div>
+    </div>
+    <p class="hint" id="warn" hidden></p>
+  </form>
+</section>
+
+<section class="panel" aria-labelledby="h-ris" aria-live="polite">
+  <p class="eyebrow" id="h-ris">Fascia di mercato</p>
+  <p class="range" id="range">–</p>
+  <div class="meta" id="meta"></div>
+
+  <div class="full" id="full">
+    <dl class="kv">
+      <div class="main"><dt>Valore di mercato</dt><dd id="v-val">–</dd></div>
+      <div><dt>Ritiro concessionario</dt><dd id="v-deal">–</dd></div>
+      <div><dt>Residuo sul listino</dt><dd id="v-res">–</dd></div>
+    </dl>
+    <div>
+      <p class="eyebrow">Come è calcolata</p>
+      <ol class="steps" id="steps"></ol>
+    </div>
+    <div class="chart">
+      <p class="eyebrow">Valore per età · annunci dello stesso modello</p>
+      <div id="chart"></div>
+    </div>
+    <div>
+      <p class="eyebrow">Annunci più simili</p>
+      <div class="tbl"><table><thead><tr><th>Modello</th><th>Immatr.</th><th class="num">Km</th><th class="num">Prezzo</th><th>Fonte</th></tr></thead><tbody id="comps"></tbody></table></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer class="site">Stima basata sui prezzi richiesti negli annunci di AutoScout24 e mobile.de (soprattutto Germania e Olanda), non su prezzi di vendita effettivi. Errore medio del modello sugli annunci: 8,2%. Curva e correzioni di marca calibrate su Pössl, Globecar, Roadcar, Panama, Knaus, Weinsberg, Adria, Hymer e Malibu; per Challenger, Dethleffs, Sunlight e Clever è indicativa. Non ha valore legale.</footer>
+</div>
+<script src="assets/quotatore.js"></script>
+</body>
+</html>

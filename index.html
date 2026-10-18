@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Camper van: quotatore e comparatore</title>
+<meta name="description" content="Quanto vale il tuo camper van usato e confronto tra i camper van nuovi dei principali marchi, per lunghezza e disposizione.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.hero{padding-block:12px 28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:18px}
+.card{display:grid;gap:12px;align-content:start;text-decoration:none;color:inherit;transition:border-color .15s}
+.card:hover{border-color:var(--accent)}
+.card h2{font-size:24px;margin:0}
+.card p{margin:0;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--muted)}
+.stats b{font-family:var(--display);font-size:22px;color:var(--ink);display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="nav">
+  <a class="brand" href="./">comparatore<span>van</span></a>
+  <nav><a href="./" aria-current="page">Home</a><a href="quotatore.html">Quotatore usato</a><a href="comparatore.html">Comparatore nuovo</a></nav>
+</div>
+
+<section class="hero">
+  <h1>Il camper van giusto, <em>al prezzo giusto</em>.</h1>
+  <p class="sub">Due strumenti nati dai listini dei costruttori: quanto vale il tuo van usato, e come si confrontano i van nuovi dei principali marchi a parità di lunghezza e disposizione.</p>
+</section>
+
+<div class="cards">
+  <a class="panel card" href="quotatore.html">
+    <p class="eyebrow">Usato</p>
+    <h2>Quanto vale il tuo van?</h2>
+    <p>Prezzo a nuovo dal listino attuale, svalutazione calibrata su centinaia di annunci reali in Europa, correzione per chilometri e stato.</p>
+    <div class="stats"><span><b id="s-annunci">–</b>annunci analizzati</span><span><b id="s-marche-q">–</b>marchi</span></div>
+    <span class="btn">Fai la quotazione</span>
+  </a>
+  <a class="panel card" href="comparatore.html">
+    <p class="eyebrow">Nuovo</p>
+    <h2>Confronta i van nuovi</h2>
+    <p>Tutti i modelli raggruppati per lunghezza (5,40, 6,00, 6,36 m) e disposizione dei letti, con prezzi di listino e differenze tra marchi.</p>
+    <div class="stats"><span><b id="s-modelli">–</b>modelli</span><span><b id="s-marche-c">–</b>marchi</span></div>
+    <span class="btn">Apri il comparatore</span>
+  </a>
+</div>
+
+<footer class="site">Prezzi di listino pubblici al pubblico, IVA inclusa. Le stime dell'usato si basano sui prezzi richiesti negli annunci e non hanno valore legale.</footer>
+</div>
+<script>
+Promise.all([fetch('data/modelli.json').then(r=>r.json()),fetch('data/annunci.json').then(r=>r.json())]).then(([m,a])=>{
+  const marche=new Set(m.map(x=>x.marca)).size;
+  document.getElementById('s-modelli').textContent=m.filter(x=>!x.fuori_listino).length;
+  document.getElementById('s-marche-c').textContent=marche;
+  document.getElementById('s-marche-q').textContent=marche;
+  document.getElementById('s-annunci').textContent=a.length;
+}).catch(()=>{});
+</script>
+</body>
+</html>
