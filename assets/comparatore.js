@@ -5,8 +5,11 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const LEN=['5,40 m','6,00 m','6,36 m','minivan','4x4 e Sprinter','da verificare'];
 const DISP=['letto trasversale','letti longitudinali','letti a castello','living o servizi posteriori','minivan (letto a soffietto)','da verificare'];
 const MAX_CMP=4;
+// Dotazioni senza le quali il van non e' utilizzabile come camper: se non sono di serie lo segnaliamo
+const ESSENZIALI=['riscaldamento','acqua_calda','frigorifero','wc'];
+const BREVE={riscaldamento:'riscaldamento',acqua_calda:'acqua calda',frigorifero:'frigo',wc:'WC'};
 
-let M=[], st={len:new Set(),disp:new Set(),marche:new Set(),telaio:'',max:0,q:''}, cmp=[];
+let M=[], DOT={}, VOCI={}, st={len:new Set(),disp:new Set(),marche:new Set(),telaio:'',max:0,q:''}, cmp=[];
 
 function chip(label,on,fn){const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=label;b.setAttribute('aria-pressed',String(on));b.onclick=fn;return b}
 function toggle(set,v){set.has(v)?set.delete(v):set.add(v)}
@@ -49,6 +52,15 @@ function drawMatrix(){
     $('mx-b').appendChild(tr)});
 }
 
+function dot(m){return DOT[m.marca+'|'+m.nome]||DOT[m.marca+'|'+m.serie]||null}
+function mancanti(m){const d=dot(m);if(!d)return[];return ESSENZIALI.filter(k=>d.voci[k]&&d.voci[k].stato!=='serie')}
+function notaMancanti(m){const x=mancanti(m);return x.length?`<span class="pill warn">${x.map(k=>BREVE[k]).join(', ')} non di serie</span>`:''}
+function statoPill(v){if(!v)return'<span class="pill muted">n.d.</span>';
+  const t=v.testo?`<span class="vtxt">${esc(v.testo)}</span>`:'';
+  if(v.stato==='serie')return`<span class="pill">di serie</span>${t}`;
+  if(v.stato==='optional')return`<span class="pill warn">optional${v.prezzo?' + '+eur(v.prezzo):''}</span>${t}`;
+  return`<span class="pill bad">non disponibile</span>${t}`}
+
 function dispPill(m){return m.disposizione==='da verificare'?'<span class="pill warn">da verificare</span>':esc(m.disposizione)}
 
 function drawList(){
@@ -56,7 +68,7 @@ function drawList(){
   const min=list.length?list[0].prezzo:0;
   $('res-n').textContent=list.length+' modelli';
   $('lista').innerHTML=list.length?list.map(m=>{const on=cmp.includes(m.id);
-    return `<tr class="${on?'sel':''}"><td>${esc(m.marca)}</td><td class="nome">${esc(m.nome)}</td><td>${esc(m.lunghezza)}</td><td>${dispPill(m)}</td><td>${esc(m.telaio)}</td><td class="num">${eur(m.prezzo)}</td><td class="num delta">${m.prezzo===min?'il più economico':'+ '+eur(m.prezzo-min)}</td><td><button type="button" class="cmpbtn" data-id="${m.id}" aria-pressed="${on}">${on?'In confronto':'Confronta'}</button></td></tr>`}).join('')
+    return `<tr class="${on?'sel':''}"><td>${esc(m.marca)}</td><td class="nome">${esc(m.nome)}${mancanti(m).length?'<br>'+notaMancanti(m):''}</td><td>${esc(m.lunghezza)}</td><td>${dispPill(m)}</td><td>${esc(m.telaio)}</td><td class="num">${eur(m.prezzo)}</td><td class="num delta">${m.prezzo===min?'il più economico':'+ '+eur(m.prezzo-min)}</td><td><button type="button" class="cmpbtn" data-id="${m.id}" aria-pressed="${on}">${on?'In confronto':'Confronta'}</button></td></tr>`}).join('')
     :'<tr><td colspan="8">Nessun modello con questi filtri.</td></tr>';
 }
 
@@ -69,9 +81,17 @@ function drawCmp(){
     <div class="price">${eur(m.prezzo)}</div>
     <div class="diff ${d?'up':'down'}">${d?'+ '+eur(d)+' rispetto al più economico':'Il più economico del confronto'}</div>
     <dl><dt>Lunghezza</dt><dd>${esc(m.lunghezza)}${m.lunghezza_cm?' ('+(m.lunghezza_cm/100).toFixed(2).replace('.',',')+' m)':''}</dd>
-    <dt>Disposizione</dt><dd>${dispPill(m)}</dd><dt>Telaio</dt><dd>${esc(m.telaio)}</dd><dt>Serie</dt><dd>${esc(m.gruppo)}</dd><dt>Fonte</dt><dd>${esc(m.fonte)}</dd></dl>
+    <dt>Disposizione</dt><dd>${dispPill(m)}</dd>${mancanti(m).length?'<dt>Attenzione</dt><dd>'+notaMancanti(m)+'</dd>':''}<dt>Telaio</dt><dd>${esc(m.telaio)}</dd><dt>Serie</dt><dd>${esc(m.gruppo)}</dd><dt>Fonte</dt><dd>${esc(m.fonte)}</dd></dl>
     <button type="button" class="cmpbtn" data-id="${m.id}" aria-pressed="true">Togli dal confronto</button></article>`}).join('')+'</div>'+
-    (sel.length===1?'<p class="hint" style="margin-top:10px">Aggiungi almeno un altro modello per il confronto.</p>':'');
+    (sel.length===1?'<p class="hint" style="margin-top:10px">Aggiungi almeno un altro modello per il confronto.</p>':'')+tabDotazioni(sel);
+}
+
+function tabDotazioni(sel){
+  const keys=Object.keys(VOCI);if(!keys.length||!sel.some(dot))return'<p class="hint" style="margin-top:12px">Dotazioni chiave non ancora disponibili per questi modelli.</p>';
+  return `<div class="tbl" style="margin-top:16px"><table class="dottab"><thead><tr><th>Dotazioni chiave</th>${sel.map(m=>`<th>${esc(m.marca)} ${esc(m.nome)}</th>`).join('')}</tr></thead><tbody>`+
+    keys.map(k=>`<tr><td><b>${esc(VOCI[k])}</b></td>${sel.map(m=>{const d=dot(m);return`<td>${d?statoPill(d.voci[k]):'<span class="pill muted">n.d.</span>'}</td>`}).join('')}</tr>`).join('')+
+    `<tr><td><b>Fonti</b></td>${sel.map(m=>{const d=dot(m);return`<td>${d?d.fonti.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">${i+1}</a>`).join(' '):''}</td>`}).join('')}</tr></tbody></table></div>
+    <p class="hint" style="margin-top:6px">n.d. = non ancora verificato. Le dotazioni dei marchi trattati da Nordaffari arriveranno dai listini ufficiali.</p>`;
 }
 
 function render(){drawFilters();drawMatrix();drawList();drawCmp();save()}
@@ -85,8 +105,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('.cmpbtn');if(!b)
 function reset(){st.len.clear();st.disp.clear();st.marche=new Set(M.map(m=>m.marca));st.telaio='';st.max=+$('f-max').max;st.q='';
   $('f-telaio').value='';$('f-max').value=st.max;$('f-q').value=''}
 
-fetch('data/modelli.json').then(r=>r.json()).then(data=>{
+Promise.all([fetch('data/modelli.json').then(r=>r.json()),fetch('data/dotazioni.json').then(r=>r.json()).catch(()=>({}))]).then(([data,dt])=>{
   M=data.filter(m=>!m.fuori_listino);
+  VOCI=dt._voci||{};delete dt._voci;DOT=dt;
   const top=Math.ceil(Math.max(...M.map(m=>m.prezzo))/1000)*1000;$('f-max').max=top;
   [...new Set(M.map(m=>m.telaio))].filter(t=>t!=='n.d.').sort().forEach(t=>$('f-telaio').add(new Option(t,t)));
   reset();

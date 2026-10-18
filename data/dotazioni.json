@@ -1,0 +1,31 @@
+{
+ "_voci": {
+  "motore_base": "Motore di serie",
+  "cambio_automatico": "Cambio automatico",
+  "riscaldamento": "Riscaldamento",
+  "acqua_calda": "Acqua calda",
+  "frigorifero": "Frigorifero",
+  "wc": "WC",
+  "batteria_servizi": "Batteria servizi",
+  "pannello_solare": "Pannello solare",
+  "clima_cabina": "Clima cabina",
+  "cruise_control": "Cruise control",
+  "tetto_soffietto": "Tetto a soffietto"
+ },
+ "Bürstner|Papillon": {
+  "fonti": [
+   "https://www.autoblog.it/post/questo-camper-da-6-metri-costa-meno-di-45-000-euro-dentro-non-manca-quasi-nulla",
+   "https://www.centrocampersebino.it/prodotto/papillon-pc-6-0-burstner-camper/",
+   "https://www.camperonline.it/listino/2026/burstner/papillon/papillon-pc-60/8883"
+  ],
+  "voci": {
+   "motore_base": {"stato": "serie", "testo": "Citroen Jumper 2.2 120 CV manuale"},
+   "cambio_automatico": {"stato": "optional", "testo": "140 CV con cambio automatico", "prezzo": 4990},
+   "riscaldamento": {"stato": "serie", "testo": "Truma Combi 4 D a gasolio"},
+   "acqua_calda": {"stato": "serie", "testo": "dalla Combi 4 D"},
+   "frigorifero": {"stato": "optional", "testo": "nessun frigo integrato: box frigo a compressore 32 l solo con Pacchetto Cucina"},
+   "wc": {"stato": "serie", "testo": "WC portatile Porta Potti"},
+   "tetto_soffietto": {"stato": "optional", "testo": "tetto a soffietto con 2 posti letto"}
+  }
+ }
+}
