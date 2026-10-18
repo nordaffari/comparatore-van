@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "_sorgente_quotatore.json"
 CORR = ROOT / "data" / "correzioni.json"
+EXTRA = ROOT / "data" / "listini_extra.json"
 
 MARCHI_NORDAFFARI = {"Pössl", "Roadcar", "Clever", "Panama", "Challenger", "Dethleffs", "Sunlight"}
 
@@ -33,13 +34,31 @@ def lunghezza(nome, desc):
         return "minivan", None
     if "4x4" in nome or "4x4" in desc or "Sprinter" in desc:
         return "4x4 e Sprinter", cm
+    return classe_lunghezza(cm), cm
+
+
+def classe_layout(testo):
+    """Classe di disposizione dal testo del listino (es. "Letti gemelli")."""
+    t = (testo or "").lower()
+    if "castello" in t:
+        return "letti a castello"
+    if "gemell" in t or "longitudinal" in t or "singol" in t or "centrale" in t:
+        return "letti longitudinali"
+    if "trasversal" in t or "francese" in t:
+        return "letto trasversale"
+    if "living" in t or "servizi" in t:
+        return "living o servizi posteriori"
+    return "da verificare"
+
+
+def classe_lunghezza(cm):
     if cm is None:
-        return "da verificare", None
+        return "da verificare"
     if cm <= 560:
-        return "5,40 m", cm
+        return "5,40 m"
     if cm <= 620:
-        return "6,00 m", cm
-    return "6,36 m", cm
+        return "6,00 m"
+    return "6,36 m"
 
 
 def disposizione(nome, desc):
@@ -100,8 +119,28 @@ def main():
             "nordaffari": marca in MARCHI_NORDAFFARI,
             "fuori_listino": desc == "stimato dagli annunci",
         }
-        m.update(corr.get(f"{marca}|{nome}", {}))
         modelli.append(m)
+    # Marchi aggiunti dai listini pubblici (camperonline.it), con lunghezza e letti dal listino
+    for e in json.loads(EXTRA.read_text()) if EXTRA.exists() else []:
+        disp = classe_layout(e.get("layout"))
+        modelli.append({
+            "id": len(modelli),
+            "marca": e["marca"],
+            "nome": e["nome"],
+            "serie": e["serie"],
+            "gruppo": e["serie"],
+            "prezzo": e["prezzo"],
+            "lunghezza": classe_lunghezza(e.get("lunghezza_cm")),
+            "lunghezza_cm": e.get("lunghezza_cm"),
+            "disposizione": disp,
+            "disposizione_fonte": "listino" if disp != "da verificare" else None,
+            "telaio": e.get("telaio") or "n.d.",
+            "fonte": e.get("fonte", "listino 2026 camperonline.it"),
+            "nordaffari": False,
+            "fuori_listino": False,
+        })
+    for m in modelli:
+        m.update(corr.get(f"{m['marca']}|{m['nome']}", {}))
     out = ROOT / "data"
     (out / "modelli.json").write_text(json.dumps(modelli, ensure_ascii=False, indent=1))
     (out / "annunci.json").write_text(json.dumps(D["rows"], ensure_ascii=False))

@@ -1,1 +1,559 @@
-{}
+{
+ "Pössl|Vario 545 Fiat Plus": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/possl/h-line",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Pössl|Vario 545 Citroen Premium": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/possl/h-line",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Pössl|2Win Vario Fiat Plus": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/possl/h-line",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Pössl|2Win Vario Citroen Premium": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/possl/h-line",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Pössl|Roadstar XT 4x4": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/possl/x-line",
+  "lunghezza_cm": 593
+ },
+ "Pössl|Roadstar X 4x4": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/possl/x-line",
+  "lunghezza_cm": 593
+ },
+ "Pössl|Roadstar XL EVO": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/magazine/?p=364946",
+  "lunghezza_cm": 697
+ },
+ "Roadcar|R540 Citroen Premium": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/roadcar/serie-r",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Roadcar|R540 Fiat Plus": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/roadcar/serie-r",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Roadcar|R640 Citroen Premium": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/roadcar/serie-r",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Roadcar|R640 Fiat Plus": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/roadcar/serie-r",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Clever|Drive 540 Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/drive-line/drive-540/8981",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Clever|Drive 540 Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/drive-line/drive-540/8981",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Clever|Drive 600 Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/drive-line/drive-600/8982",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Drive 600 Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/drive-line/drive-600/8982",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Drive 600 Kids Fiat": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/drive-line/drive-600-kids/8983",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Drive 600 Kids Citroen": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/drive-line/drive-600-kids/8983",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Duo 540 Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/drive-line/duo-540/8980",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Clever|Duo 540 Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/drive-line/duo-540/8980",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Clever|Duo 600 Fiat": {
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Duo 600 Citroen": {
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Tour 540 Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/tour-540/8987",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Clever|Tour 540 Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/tour-540/8987",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Clever|Celebration 600 Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/celebration-600/8988",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Celebration 600 Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/celebration-600/8988",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Spirit 600 Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/spirit-600/8989",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Spirit 600 Citroen": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/spirit-600/8989",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Clever|Runner 636 Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/runner-636/8990",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Clever|Runner 636 Citroen": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/runner-636/8990",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Clever|Runner 636 Active Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/runner-active-636/8991",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Clever|Runner 636 Active Citroen": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/select-line/runner-active-636/8991",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Clever|Aventuro 600 Mercedes": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/clever/ultima-line/aventuro-600/8994",
+  "lunghezza_cm": 593,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|F&S Sport Edition Fiat 599 4posti": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V114S 540 Road Edition Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-break-edition",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Challenger|V114S 540 Break Edition Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-break-edition",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Challenger|V114S 540 Road Sport Edition Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Challenger|V114S 540 Sport Edition Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Challenger|V114 599 Break Edition Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-break-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V114 599 Road Edition Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-break-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V114 599 Sport Edition Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V114 599 Road Sport Edition Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V114M 599 Break Edition Fiat": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-break-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V114M 599 Road Edition Citroen": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-cosy-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V114M 599 Road Sport Edition Citroen": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V114M 599 Sport Edition Fiat": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Challenger|V210 Sport Edition Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Challenger|V217 636 Break Edition Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-break-edition",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Challenger|V217 636 Sport Edition Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/challenger/serie-v-sport-edition",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Dethleffs|540 DR": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/dethleffs/globetrail/540-dr/341",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Dethleffs|600 DS": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/dethleffs/globetrail/600-ds/8217",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Dethleffs|640 HR": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/dethleffs/globetrail/640-hr/8220",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Dethleffs|540 DS ACTIVE Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.promobil.de/neuheiten/einsteiger-campingbusse-ab-47-299-euro-globetrail-active-540-ds-und-600-es/",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Dethleffs|540 DS ACTIVE Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.promobil.de/neuheiten/einsteiger-campingbusse-ab-47-299-euro-globetrail-active-540-ds-und-600-es/",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Dethleffs|600 KS ACTIVE Citroen": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/dethleffs/globetrail-active/600-ks-active/8813",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Dethleffs|600 KS ACTIVE Fiat": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/dethleffs/globetrail-active/600-ks-active/8813",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Dethleffs|600 DS ACTIVE Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/dethleffs/globetrail-active/600-ds-active/8812",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Dethleffs|600 DS ACTIVE Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/dethleffs/globetrail-active/600-ds-active/8812",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Dethleffs|540 DS ACTIVE PLUS Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.dethleffs.com/camper-van/globetrail-active-plus/540-ds-fiat",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Dethleffs|600 DS ACTIVE PLUS Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.dethleffs.com/camper-van/globetrail-active-plus/600-ds-fiat",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Dethleffs|600 KS ACTIVE PLUS Fiat": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.dethleffs.com/camper-van/globetrail-active-plus/600-ks-fiat",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Ibex 604D 4x4 VW": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://press.sunlight.de/en/sunlight-launches-new-off-road-range/"
+ },
+ "Sunlight|Ibex 603D 4x4 Ford": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.caraworld.de/print/cw28068362-de-DE1-expose.pdf"
+ },
+ "Sunlight|Cliff 540 ROOT Peugeot": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Sunlight|Cliff 600 ROOT Peugeot": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 640 ROOT Peugeot": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Sunlight|Cliff 540V Fiat Adventure": {
+  "disposizione": "living o servizi posteriori",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-v-vanlife",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Sunlight|Cliff 540 Adventure Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Sunlight|Cliff 600 Adventure Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 601 Adventure Fiat": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 602 Adventure Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 640 Adventure Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Sunlight|Cliff 540 Adventure Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Sunlight|Cliff 600 Adventure Citroen": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 601 Adventure Citroen": {
+  "disposizione": "letti a castello",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 602 Adventure Citroen": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 640 Adventure Citroen": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Sunlight|Cliff 600 X Fiat": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 602 X Fiat": {
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Sunlight|Cliff 640 X Fiat": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/sunlight/cliff-adventure-edition",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Knaus|BoxLife 600 DQ": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.truckscout24.com/tsp/ts-209-37-767",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Knaus|BoxTime 630 MX": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/knaus/boxtime",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Weinsberg|CaraBus 600 DQ": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.goboony.co.uk/camper/ysc/91281",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Weinsberg|CaraBus 600 MQH": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.promobil.de/supercheck/weinsberg-600-mqh-test-kastenwagen-familien/",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Weinsberg|CaraBus 600 MQH Edition Fire": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/weinsberg/carabus-edition-fire/carabus-600-mq-edition-fire/8270",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Weinsberg|CaraLife 630 LQ": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/weinsberg/caralife/caralife-630-lq/372",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Adria|Twin 640 SGX": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/adria/twin/twin-640-sgx/5046",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Adria|Twin Supreme 640 SGX": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/adria/twin-supreme",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Adria|Twin Sports 640 SGX": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/adria/twin-sports",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Hymer|Ayers Rock": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/hymer/hymer-campervan-fiat",
+  "lunghezza_cm": 541,
+  "lunghezza": "5,40 m"
+ },
+ "Hymer|Grand Canyon": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/hymer/hymer-campervan-fiat",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Hymer|Yosemite": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/hymer/hymer-campervan-fiat",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Hymer|Yellowstone 601": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/hymer/hymer-campervan-fiat",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Hymer|Yellowstone 640": {
+  "disposizione": "letti longitudinali",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/hymer/hymer-campervan-fiat",
+  "lunghezza_cm": 636,
+  "lunghezza": "6,36 m"
+ },
+ "Hymer|Redwood 600": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/hymer/redwood",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ },
+ "Hymer|Redwood 601": {
+  "disposizione": "letto trasversale",
+  "disposizione_fonte": "web: https://www.camperonline.it/listino/2026/hymer/redwood",
+  "lunghezza_cm": 599,
+  "lunghezza": "6,00 m"
+ }
+}

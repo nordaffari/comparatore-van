@@ -3,7 +3,7 @@ const $=id=>document.getElementById(id);
 const eur=v=>'€ '+Math.round(v).toLocaleString('it-IT');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LEN=['5,40 m','6,00 m','6,36 m','minivan','4x4 e Sprinter','da verificare'];
-const DISP=['letto trasversale','letti longitudinali','minivan (letto a soffietto)','da verificare'];
+const DISP=['letto trasversale','letti longitudinali','letti a castello','living o servizi posteriori','minivan (letto a soffietto)','da verificare'];
 const MAX_CMP=4;
 
 let M=[], st={len:new Set(),disp:new Set(),marche:new Set(),telaio:'',max:0,q:''}, cmp=[];

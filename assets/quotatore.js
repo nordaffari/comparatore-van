@@ -14,6 +14,7 @@ function ageFactor(a){return Math.pow(1+P.p1,Math.min(a,1))*Math.pow(1+P.p2,Math
 function kmExp(a){return a<=6?P.kmA*a:P.kmA*6+P.kmB*(a-6)}
 let stato=0, optTouched=false;
 const brands=[...new Set(MODELS.map(m=>m[0]))];
+$('tag-marche').textContent=brands.length+' marchi';
 brands.forEach(b=>$('marca').add(new Option(b,b)));
 
 const ALIAS=[[/\bglobe ?scout\b/g,'2win'],[/\b2 win\b/g,'2win'],[/\bbox ?star\b/g,'boxlife'],[/\bvan ?tourer\b/g,'boxlife'],[/\bfreeway\b/g,'boxlife 630 me'],
@@ -115,5 +116,5 @@ calc();
 }
 
 Promise.all(['modelli','annunci','parametri'].map(n=>fetch('data/'+n+'.json').then(r=>r.json()))).then(([m,rows,par])=>{
-  avvia({models:m.map(x=>[x.marca,x.nome,x.prezzo,x.serie,x.gruppo]),rows,fit:par.fit,bf:par.bf});
+  avvia({models:m.map(x=>[x.marca,x.nome,x.prezzo,x.serie,x.fonte==='listino 2026 camperonline.it'?x.fonte:x.gruppo]),rows,fit:par.fit,bf:par.bf});
 }).catch(()=>{document.getElementById('range').textContent='Dati non disponibili, riprova più tardi.'});
