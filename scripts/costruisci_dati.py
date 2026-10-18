@@ -139,8 +139,14 @@ def main():
             "nordaffari": False,
             "fuori_listino": False,
         })
+    dot = json.loads((ROOT / "data" / "dotazioni.json").read_text())
     for m in modelli:
         m.update(corr.get(f"{m['marca']}|{m['nome']}", {}))
+        if m["telaio"] == "n.d.":
+            # telaio dal motore di serie nelle dotazioni (es. "Fiat Ducato 2.2 140 CV")
+            d = dot.get(f"{m['marca']}|{m['nome']}") or dot.get(f"{m['marca']}|{m['serie']}") or {}
+            mot = d.get("voci", {}).get("motore_base", {}).get("testo", "")
+            m["telaio"] = telaio(m["marca"], mot, "")
     out = ROOT / "data"
     (out / "modelli.json").write_text(json.dumps(modelli, ensure_ascii=False, indent=1))
     (out / "annunci.json").write_text(json.dumps(D["rows"], ensure_ascii=False))

@@ -81,7 +81,7 @@ function drawCmp(){
     <div class="price">${eur(m.prezzo)}</div>
     <div class="diff ${d?'up':'down'}">${d?'+ '+eur(d)+' rispetto al più economico':'Il più economico del confronto'}</div>
     <dl><dt>Lunghezza</dt><dd>${esc(m.lunghezza)}${m.lunghezza_cm?' ('+(m.lunghezza_cm/100).toFixed(2).replace('.',',')+' m)':''}</dd>
-    <dt>Disposizione</dt><dd>${dispPill(m)}</dd>${mancanti(m).length?'<dt>Attenzione</dt><dd>'+notaMancanti(m)+'</dd>':''}<dt>Telaio</dt><dd>${esc(m.telaio)}</dd><dt>Serie</dt><dd>${esc(m.gruppo)}</dd><dt>Fonte</dt><dd>${esc(m.fonte)}</dd></dl>
+    <dt>Disposizione</dt><dd>${dispPill(m)}</dd>${mancanti(m).length?'<dt>Attenzione</dt><dd>'+notaMancanti(m)+'</dd>':''}<dt>Telaio</dt><dd>${esc(m.telaio)}</dd>${m.gruppo.startsWith('listino')?'':'<dt>Serie</dt><dd>'+esc(m.gruppo)+'</dd>'}<dt>Fonte</dt><dd>${esc(m.fonte)}</dd></dl>
     <button type="button" class="cmpbtn" data-id="${m.id}" aria-pressed="true">Togli dal confronto</button></article>`}).join('')+'</div>'+
     (sel.length===1?'<p class="hint" style="margin-top:10px">Aggiungi almeno un altro modello per il confronto.</p>':'')+tabDotazioni(sel);
 }
