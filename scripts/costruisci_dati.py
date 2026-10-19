@@ -149,8 +149,18 @@ def main():
             m["telaio"] = telaio(m["marca"], mot, "")
     out = ROOT / "data"
     (out / "modelli.json").write_text(json.dumps(modelli, ensure_ascii=False, indent=1))
-    (out / "annunci.json").write_text(json.dumps(D["rows"], ensure_ascii=False))
-    (out / "parametri.json").write_text(json.dumps({"fit": D["fit"], "bf": D["bf"]}, ensure_ascii=False, indent=1))
+    # venduti reali Nordaffari accanto agli annunci (sorgente "v", mese di immatricolazione non noto)
+    righe = list(D["rows"])
+    vend = ROOT / "data" / "venduti_nordaffari.json"
+    idx = {f"{m['marca']}|{m['nome']}": m for m in modelli}
+    for chiave, desc, anno, km, prezzo in json.loads(vend.read_text())["righe"] if vend.exists() else []:
+        m = idx[chiave]
+        righe.append([m["serie"], m["marca"], desc, f"06/{anno}", km, prezzo, "v", "IT"])
+    (out / "annunci.json").write_text(json.dumps(righe, ensure_ascii=False))
+    # parametri ricalibrati da scripts/calibra.py (annunci + venduti), altrimenti quelli della sorgente
+    cal = ROOT / "data" / "calibrazione.json"
+    par = json.loads(cal.read_text()) if cal.exists() else {"fit": D["fit"], "bf": D["bf"]}
+    (out / "parametri.json").write_text(json.dumps(par, ensure_ascii=False, indent=1))
     da_ver = sum(m["disposizione"] == "da verificare" for m in modelli)
     print(f"{len(modelli)} modelli, {len(D['rows'])} annunci, disposizione da verificare: {da_ver}")
 

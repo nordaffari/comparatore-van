@@ -2,7 +2,8 @@
 function avvia(D){
 const F=D.fit, ROWS=D.rows, MODELS=D.models;
 const P={up:F.up,p1:F.s1,p2:F.s2,p3:F.s3,pkm:F.ck,kmA:10000,kmB:7000,band:0.04,dealer:0.125};
-const CAL=new Set(['Pössl','Roadcar','Panama','Knaus','Weinsberg','Adria','Hymer','Malibu']);
+const MV=D.minivan||{s1:P.p1,s2:P.p2};
+const CAL=new Set(['Pössl','Roadcar','Panama','Knaus','Weinsberg','Adria','Hymer','Malibu','Clever','Challenger']);
 const BF=D.bf||{};
 const $=id=>document.getElementById(id);
 const eur=v=>'€ '+Math.round(v).toLocaleString('it-IT');
@@ -10,7 +11,10 @@ const pct=v=>(v*100).toFixed(1).replace('.',',')+'%';
 const MESI=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
 const now=new Date();
 function ageOf(y,m){return Math.max(0,(now.getFullYear()+now.getMonth()/12)-(y+(m-0.5)/12))}
-function ageFactor(a){return Math.pow(1+P.p1,Math.min(a,1))*Math.pow(1+P.p2,Math.min(Math.max(a-1,0),5))*Math.pow(1+P.p3,Math.max(a-6,0))}
+// i minivan (Panama, Campster, Vanster, Vanstar) perdono valore con una curva propria
+function isMini(M){return M[0]==='Panama'||/^(Campster|Vanster|Vanstar)/.test(M[1])}
+function ageFactor(a,M){if(M&&isMini(M))return Math.pow(1+MV.s1,Math.min(a,1))*Math.pow(1+MV.s2,Math.max(a-1,0));
+  return Math.pow(1+P.p1,Math.min(a,1))*Math.pow(1+P.p2,Math.min(Math.max(a-1,0),5))*Math.pow(1+P.p3,Math.max(a-6,0))}
 function kmExp(a){return a<=6?P.kmA*a:P.kmA*6+P.kmB*(a-6)}
 let stato=0, optTouched=false;
 const brands=[...new Set(MODELS.map(m=>m[0]))];
@@ -69,11 +73,12 @@ $('stato').addEventListener('click',e=>{const b=e.target.closest('button');if(!b
 function calc(){
   const mi=+$('modello').value, M=MODELS[mi];
   const L=+$('listino').value||0, opt=+$('opt').value||0, acc=+$('acc').value||0, y=+$('anno').value, m=+$('mese').value, km=+$('km').value||0;
-  const a=ageOf(y,m), fa=ageFactor(a), ke=kmExp(a), dk=km-ke, fk=Math.pow(1+P.pkm,dk/1000);
+  const a=ageOf(y,m), fa=ageFactor(a,M), ke=kmExp(a), dk=km-ke, fk=Math.pow(1+P.pkm,dk/1000);
   const bfac=BF[M[0]]||1, base=L+opt+acc, val=Math.round(base*bfac*fa*fk*(1+stato)/100)*100;
   const lo=Math.round(val*(1-P.band)/100)*100, hi=Math.round(val*(1+P.band)/100)*100;
   const warn=[];if(km>150000)warn.push('Oltre 150.000 km la stima è fuori dal campione e meno affidabile.');
   if(M[0]==='Hymer')warn.push('Per Hymer la correzione di marca si basa su circa 30 annunci: stima indicativa.');
+  if(M[0]==='Clever'||M[0]==='Challenger')warn.push('Per '+M[0]+' la correzione di marca si basa su pochi venduti reali: stima indicativa.');
   if(!CAL.has(M[0]))warn.push(M[0]+': curva di svalutazione presa da Pössl/Globecar, ancora da verificare sugli annunci di questa marca.');
   $('warn').hidden=!warn.length;$('warn').textContent=warn.join(' ');
   $('range').innerHTML=L?`${eur(lo)} <span>–</span> ${eur(hi)}`:'–';
@@ -82,8 +87,8 @@ function calc(){
   $('v-val').textContent=eur(val);$('v-deal').textContent=eur(Math.round(val*(1-P.dealer)/100)*100);$('v-res').textContent=Math.round(val/(L+opt)*100)+'%';
   const kp=Math.abs(dk)/1000*Math.abs(P.pkm)*100, kn=Math.round(Math.abs(dk)/1000);
   $('steps').innerHTML=[`Listino ${eur(L)} + optional ${eur(opt)} + accessori ${eur(acc)} = ${eur(base)}`,
-   `Età ${a.toFixed(1).replace('.',',')} anni: ${pct(P.p1)} il primo anno, ${pct(P.p2)} l'anno fino al sesto, poi ${pct(P.p3)} → resta il ${Math.round(fa*100)}%`,
-   bfac!==1?`Correzione ${M[0]}: ${bfac>1?'+':'−'}${Math.abs(Math.round((bfac-1)*100))}% (rapporto tra listino italiano e prezzi reali dell'usato in Europa)`:'Correzione marca: nessuna (riferimento Pössl)',
+   isMini(M)?`Età ${a.toFixed(1).replace('.',',')} anni, curva minivan: ${pct(MV.s1)} il primo anno, poi ${pct(MV.s2)} l'anno → resta il ${Math.round(fa*100)}%`:`Età ${a.toFixed(1).replace('.',',')} anni: ${pct(P.p1)} il primo anno, ${pct(P.p2)} l'anno fino al sesto, poi ${pct(P.p3)} → resta il ${Math.round(fa*100)}%`,
+   bfac!==1?`Correzione ${M[0]}: ${bfac>1?'+':'−'}${Math.abs(Math.round((bfac-1)*100))}% (rapporto tra listino e prezzi reali dell'usato)`:'Correzione marca: nessuna (riferimento Pössl)',
    `Km: ${dk>=0?'−':'+'}${kp.toFixed(1).replace('.',',')}% per ${kn}.000 km ${dk>=0?'sopra':'sotto'} la media`,
    stato?`Stato: ${stato>0?'+':'−'}${Math.abs(stato*100)}%`:'Stato buono: nessuna correzione',
    `Ritiro da concessionario: −12,5% (margine di rivendita)`].map(s=>`<li>${s}</li>`).join('');
@@ -91,30 +96,30 @@ function calc(){
 }
 function pool(M){let p=ROWS.filter(r=>r[0]===M[3]);if(p.length<3)p=ROWS.filter(r=>r[1]===M[0]||(M[0]==='Pössl'&&r[1]==='Globecar'));return p}
 function comps(M,y,km){
-  const list=pool(M).map(r=>{const [mm,yy]=r[3].split('/').map(Number);return{r,d:Math.abs(yy+mm/12-y)+Math.abs(r[4]-km)/40000}}).sort((a,b)=>a.d-b.d).slice(0,6);
-  $('comps').innerHTML=list.length?list.map(({r})=>`<tr><td>${r[1]} ${r[2]}</td><td>${r[3]}</td><td class="num">${r[4].toLocaleString('it-IT')}</td><td class="num">${eur(r[5])}</td><td>${r[6]==='m'?'mobile.de':'AutoScout24'} · ${r[7]}</td></tr>`).join(''):'<tr><td colspan="5">Ancora nessun annuncio raccolto per questa marca.</td></tr>';
+  const list=pool(M).map(r=>{const [mm,yy]=r[3].split('/').map(Number);return{r,d:(Math.abs(yy+mm/12-y)+Math.abs(r[4]-km)/40000)*(r[6]==='v'?0.6:1)}}).sort((a,b)=>a.d-b.d).slice(0,6);
+  $('comps').innerHTML=list.length?list.map(({r})=>`<tr><td>${r[1]} ${r[2]}${r[6]==='v'?' <span class="pill">venduto Nordaffari</span>':''}</td><td>${r[6]==='v'?r[3].slice(3):r[3]}</td><td class="num">${r[4].toLocaleString('it-IT')}</td><td class="num">${eur(r[5])}</td><td>${r[6]==='v'?'<b>venduto Nordaffari</b>':(r[6]==='m'?'mobile.de':'AutoScout24')+' · '+r[7]}</td></tr>`).join(''):'<tr><td colspan="5">Ancora nessun annuncio raccolto per questa marca.</td></tr>';
 }
 function drawChart(M,base,age,val){
   const W=560,H=260,ml=52,mr=14,mt=12,mb=34,x0=0,x1=12;
-  const pts=pool(M).map(r=>{const [mm,yy]=r[3].split('/').map(Number);return[ageOf(yy,mm),r[5]]});
-  const ymax=Math.ceil(Math.max(base,...pts.map(p=>p[1]))/10000)*10000, ymin=Math.max(0,Math.floor(Math.min(base*ageFactor(12)*0.85,...pts.map(p=>p[1]))/10000)*10000);
+  const pts=pool(M).map(r=>{const [mm,yy]=r[3].split('/').map(Number);return[ageOf(yy,mm),r[5],r[6]==='v']});
+  const ymax=Math.ceil(Math.max(base,...pts.map(p=>p[1]))/10000)*10000, ymin=Math.max(0,Math.floor(Math.min(base*ageFactor(12,M)*0.85,...pts.map(p=>p[1]))/10000)*10000);
   const X=v=>ml+(v-x0)/(x1-x0)*(W-ml-mr), Y=v=>mt+(1-(v-ymin)/(ymax-ymin))*(H-mt-mb);
   let g='';
   for(let v=ymin;v<=ymax;v+=10000)g+=`<line x1="${ml}" x2="${W-mr}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${ml-6}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)">${v/1000}k</text>`;
   for(let v=0;v<=12;v+=2)g+=`<text x="${X(v)}" y="${H-12}" text-anchor="middle" font-size="11" fill="var(--muted)">${v}</text>`;
   g+=`<text x="${W-mr}" y="${H-1}" text-anchor="end" font-size="11" fill="var(--muted)">anni</text>`;
-  let d='';for(let t=0;t<=12;t+=0.25){d+=(t?'L':'M')+X(t).toFixed(1)+','+Y(base*ageFactor(t)).toFixed(1)}
-  pts.forEach(p=>{if(p[0]<=12)g+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="3.5" fill="var(--muted)" fill-opacity=".45"/>`});
+  let d='';for(let t=0;t<=12;t+=0.25){d+=(t?'L':'M')+X(t).toFixed(1)+','+Y(base*ageFactor(t,M)).toFixed(1)}
+  pts.forEach(p=>{if(p[0]<=12)g+=p[2]?`<rect x="${X(p[0])-4}" y="${Y(p[1])-4}" width="8" height="8" fill="var(--good)"/>`:`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="3.5" fill="var(--muted)" fill-opacity=".45"/>`});
   g+=`<path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2.5"/>`;
   const ax=Math.min(age,12);
   g+=`<circle cx="${X(ax)}" cy="${Y(val)}" r="6" fill="var(--amber)" stroke="var(--surface)" stroke-width="2"/>`;
   const right=X(ax)>W-130;
   g+=`<text x="${X(ax)+(right?-10:10)}" y="${Y(val)-10}" text-anchor="${right?'end':'start'}" font-size="12" font-weight="600" fill="var(--ink)">Il tuo: ${eur(val)}</text>`;
-  $('chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Curva di valore per età con annunci reali">${g}</svg><p class="hint">Linea: valore stimato a km medi per il tuo listino. Punti: annunci reali dello stesso modello (o della stessa marca se sono pochi).</p>`;
+  $('chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Curva di valore per età con annunci reali">${g}</svg><p class="hint">Linea: valore stimato a km medi per il tuo listino. Punti grigi: annunci dello stesso modello (o della stessa marca se sono pochi). Quadrati verdi: venduti reali Nordaffari.</p>`;
 }
 calc();
 }
 
 Promise.all(['modelli','annunci','parametri'].map(n=>fetch('data/'+n+'.json').then(r=>r.json()))).then(([m,rows,par])=>{
-  avvia({models:m.map(x=>[x.marca,x.nome,x.prezzo,x.serie,x.fonte==='listino 2026 camperonline.it'?x.fonte:x.gruppo]),rows,fit:par.fit,bf:par.bf});
+  avvia({models:m.map(x=>[x.marca,x.nome,x.prezzo,x.serie,x.fonte==='listino 2026 camperonline.it'?x.fonte:x.gruppo]),rows,fit:par.fit,bf:par.bf,minivan:par.minivan});
 }).catch(()=>{document.getElementById('range').textContent='Dati non disponibili, riprova più tardi.'});

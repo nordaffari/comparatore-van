@@ -2,7 +2,7 @@
 
 Sito statico (GitHub Pages) con due strumenti:
 
-- **Quotatore usato** (`quotatore.html`): valore del camper van usato dal listino attuale, svalutato per età, km, marca e stato. Parametri calibrati su circa 670 annunci AutoScout24 e mobile.de.
+- **Quotatore usato** (`quotatore.html`): valore del camper van usato dal listino attuale, svalutato per età, km, marca e stato. Parametri calibrati da `scripts/calibra.py` su circa 610 annunci AutoScout24 e mobile.de e sui venduti reali Nordaffari (`data/venduti_nordaffari.json`, peso 5×), con una curva separata per i minivan. Dopo aver aggiornato i venduti: `python3 scripts/calibra.py && python3 scripts/costruisci_dati.py`.
 - **Comparatore nuovo** (`comparatore.html`): modelli dei principali marchi per lunghezza e disposizione dei letti, con prezzo di listino e confronto fino a 4 modelli.
 
 ## Dati
