@@ -95,7 +95,8 @@ function prezzo(m){
   const acc=costoAccessori(m,[...st.acc])||{costo:0,righe:[]};
   const listino=m.prezzo+cambio+acc.costo;
   const sc=sconto(m.marca);
-  const scontato=Math.round(listino*(1-sc));
+  // sconto: frazione (0.08 = 8%) oppure importo fisso in euro se maggiore di 1
+  const scontato=Math.round(sc>1?listino-sc:listino*(1-sc));
   const mis=st.mis?(m.messa_in_strada||0):0;
   return{base:m.prezzo,cambio,acc,listino,sc,scontato,mis,totListino:listino+mis,totScontato:scontato+mis};
 }
@@ -206,7 +207,7 @@ function cardVan(m,p,stato,motivo){
   p.acc.righe.forEach(r=>righe.push([`${r.acc.map(nomeAcc).join(', ')}: ${r.t}`,r.p]));
   let html='<table><tbody>'+righe.map(([t,v])=>`<tr><td>${esc(t)}</td><td>${v===0?'<span class="serie">di serie</span>':eur(v)}</td></tr>`).join('');
   html+=`<tr><td><b>Totale listino</b></td><td><b>${eur(p.listino)}</b></td></tr>`;
-  if(p.sc>0)html+=`<tr><td>Sconto ${Math.round(p.sc*1000)/10}%</td><td>- ${eur(p.listino-p.scontato)}</td></tr>`;
+  if(p.sc>0)html+=`<tr><td>Sconto ${p.sc>1?'':Math.round(p.sc*1000)/10+'%'}</td><td>- ${eur(p.listino-p.scontato)}</td></tr>`;
   if(p.mis)html+=`<tr><td>Messa in strada</td><td>${eur(p.mis)}</td></tr>`;
   html+=`<tr><td><b>Prezzo finale</b></td><td><b>${eur(p.totScontato)}</b></td></tr></tbody></table>`;
   if(m.descrizione)html+=`<p class="hint" style="margin-top:6px">${esc(m.descrizione)}</p>`;
