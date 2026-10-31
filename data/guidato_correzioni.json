@@ -1,5 +1,74 @@
 {
- "_nota": "Correzioni a mano per il configuratore guidato, chiave 'Marca|Modello' come in F1. Valori: lunghezza 540/600/636/oltre/minivan, letti trasversale/longitudinali/castello/dinette/soffietto, bagno classico/vario/separata/senza/con bagno.",
- "Dethleffs|600 KS ACTIVE PLUS": {"bagno": "vario"},
- "Dethleffs|600 DR PERFORMANCE ADVANTAGE": {"bagno": "separata"}
+ "_nota": "Correzioni a mano per il configuratore guidato, chiave 'Marca|Modello' come in F1. Valori: lunghezza 540/600/636/oltre/minivan, letti trasversale/longitudinali/castello/dinette/soffietto, bagno classico/vario/separata/impermeabile/senza/con bagno.",
+ "Dethleffs|600 KS ACTIVE PLUS": {
+  "bagno": "vario"
+ },
+ "Dethleffs|600 DR PERFORMANCE ADVANTAGE": {
+  "bagno": "separata"
+ },
+ "Clever|Drive 540 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 540 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 600 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 600 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 600 Kids Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 600 Kids Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Duo 540 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Duo 540 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Duo 600 Fiat": {
+  "bagno": "impermeabile",
+  "letti": "trasversale"
+ },
+ "Clever|Duo 600 Citroen": {
+  "bagno": "impermeabile",
+  "letti": "trasversale"
+ },
+ "Clever|Tour 540 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Tour 540 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Celebration 600 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Celebration 600 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Spirit 600 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Spirit 600 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Runner 636 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Runner 636 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Runner 636 Active Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Runner 636 Active Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Aventuro 600 Mercedes": {
+  "bagno": "impermeabile"
+ }
 }

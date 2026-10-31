@@ -8,8 +8,8 @@ const LEN={minivan:'Minivan',540:'5,40 m',600:'6,00 m',636:'6,36 m',oltre:'Oltre
 const LEN_SUB={minivan:'meno di 5,4 m, letto nel tetto',540:'circa 5,40 m',600:'da 5,90 a 6,05 m',636:'da 6,36 a 6,40 m',oltre:'7 m, patente C'};
 const LETTI={trasversale:'Matrimoniale trasversale',longitudinali:'Letti longitudinali',castello:'Letti a castello o doppio matrimoniale',dinette:'Dinette in coda',soffietto:'Letto nel tetto (minivan)','da verificare':'Da verificare'};
 const LETTI_SUB={trasversale:'letto in coda di traverso',longitudinali:'due letti singoli, unibili',castello:'4 posti letto in coda',dinette:'salotto a ferro di cavallo',soffietto:'divano letto e tetto sollevabile'};
-const BAGNO={classico:'Bagno classico',vario:'Bagno Vario',separata:'Bagno R centrale',senza:'Senza bagno','con bagno':'Bagno nel minivan','da verificare':'Da verificare'};
-const BAGNO_SUB={classico:'con tendina doccia',vario:'con doccia separabile',separata:'bagno centrale con doccia separabile',senza:'solo WC portatile','con bagno':'bagno compatto'};
+const BAGNO={classico:'Bagno classico',vario:'Bagno Vario',separata:'Bagno R centrale',impermeabile:'Bagno impermeabile',senza:'Senza bagno','con bagno':'Bagno nel minivan','da verificare':'Da verificare'};
+const BAGNO_SUB={classico:'con tendina doccia',vario:'con doccia separabile',separata:'bagno centrale con doccia separabile',impermeabile:'tutto il vano fa da doccia',senza:'solo WC portatile','con bagno':'bagno compatto'};
 
 const STEPS=[
   {id:'len',key:'lunghezza',nome:'Lunghezza',titolo:'Quanto lungo vuoi il van?',hint:'Puoi sceglierne più di una. Nessuna scelta vuol dire tutte.',lab:LEN,sub:LEN_SUB},
