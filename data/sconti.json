@@ -1,0 +1,6 @@
+{
+ "_nota": "Sconto per il prezzo scontato del configuratore guidato (guidato.html), come frazione del listino di van e optional: 0.10 = 10%. 'marche' vince su 'predefinito', es. {\"Panama\": 0.05}. La messa in strada non e' scontata.",
+ "predefinito": 0.10,
+ "marche": {},
+ "nota_sito": "Prezzo scontato calcolato con uno sconto provvisorio, da confermare."
+}
