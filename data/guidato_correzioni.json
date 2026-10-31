@@ -1,0 +1,170 @@
+{
+ "_nota": "Correzioni a mano per il configuratore guidato, chiave 'Marca|Modello' come in F1. Valori: lunghezza 540/600/636/oltre/minivan, letti trasversale/longitudinali/castello/dinette/soffietto, bagno classico/vario/separata/impermeabile/senza/con bagno.",
+ "Dethleffs|600 KS ACTIVE PLUS": {
+  "bagno": "vario"
+ },
+ "Dethleffs|600 DR PERFORMANCE ADVANTAGE": {
+  "bagno": "separata"
+ },
+ "Clever|Drive 540 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 540 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 600 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 600 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 600 Kids Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Drive 600 Kids Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Duo 540 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Duo 540 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Duo 600 Fiat": {
+  "bagno": "impermeabile",
+  "letti": "trasversale"
+ },
+ "Clever|Duo 600 Citroen": {
+  "bagno": "impermeabile",
+  "letti": "trasversale"
+ },
+ "Clever|Tour 540 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Tour 540 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Celebration 600 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Celebration 600 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Spirit 600 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Spirit 600 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Runner 636 Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Runner 636 Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Runner 636 Active Fiat": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Runner 636 Active Citroen": {
+  "bagno": "impermeabile"
+ },
+ "Clever|Aventuro 600 Mercedes": {
+  "bagno": "impermeabile"
+ },
+ "Challenger|F&S Sport Edition Fiat 599 4posti": {
+  "bagno": "separata"
+ },
+ "Pössl|Trenta 640 Fiat Plus": {
+  "bagno": "classico"
+ },
+ "Pössl|Trenta 640 Citroen Premium": {
+  "bagno": "classico"
+ },
+ "Pössl|Vario 545 Fiat Plus": {
+  "bagno": "classico"
+ },
+ "Pössl|Vario 545 Citroen Premium": {
+  "bagno": "classico"
+ },
+ "Pössl|Summit Shine 640 R EVO Fiat Plus": {
+  "bagno": "separata"
+ },
+ "Pössl|Summit Shine 640 R EVO Citroen Premium": {
+  "bagno": "separata"
+ },
+ "Pössl|2Win Vario Fiat Plus": {
+  "bagno": "vario"
+ },
+ "Pössl|2Win Vario Citroen Premium": {
+  "bagno": "vario"
+ },
+ "Pössl|Roadstar XT 4x4": {
+  "bagno": "impermeabile"
+ },
+ "Pössl|Roadstar X 4x4": {
+  "bagno": "impermeabile"
+ },
+ "Pössl|Roadstar XL EVO": {
+  "bagno": "vario"
+ },
+ "Roadcar|R540 Citroen Premium": {
+  "bagno": "classico"
+ },
+ "Roadcar|R540 Fiat Plus": {
+  "bagno": "classico"
+ },
+ "Roadcar|R640 Citroen Premium": {
+  "bagno": "classico"
+ },
+ "Roadcar|R640 Fiat Plus": {
+  "bagno": "classico"
+ },
+ "Sunlight|Ibex 604D 4x4 VW": {
+  "bagno": "classico"
+ },
+ "Sunlight|Ibex 603D 4x4 Ford": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 540 ROOT Peugeot": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 600 ROOT Peugeot": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 640 ROOT Peugeot": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 540V Fiat Adventure": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 540 Adventure Fiat": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 600 Adventure Fiat": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 601 Adventure Fiat": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 602 Adventure Fiat": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 640 Adventure Fiat": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 540 Adventure Citroen": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 600 Adventure Citroen": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 601 Adventure Citroen": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 602 Adventure Citroen": {
+  "bagno": "classico"
+ },
+ "Sunlight|Cliff 640 Adventure Citroen": {
+  "bagno": "classico"
+ }
+}
